@@ -35,7 +35,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Move(Vector3 dir)
     {
-        transform.position += dir.normalized * (Time.deltaTime * speed);
+        transform.position += Vector3.right * (Time.deltaTime * speed);
     }
 
     private void Jump()
