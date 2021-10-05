@@ -103,4 +103,9 @@ public class Register : MonoBehaviour
         var finalString = new String(stringChars);
         return finalString;
     }
+
+    public void GoToLogin()
+    {
+        SceneManager.LoadScene("Login");
+    }
 }

@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using System;
+using Mirror;
 using UnityEngine;
 
 public class ReceiveDamage : NetworkBehaviour
@@ -18,15 +19,25 @@ public class ReceiveDamage : NetworkBehaviour
         this.currentHealth = this.maxHealth;
         this.initialPosition = this.transform.position;
     }
-    void OnTriggerEnter2D (Collider2D collider) 
+    
+
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.CompareTag("Bullet") && !isLocalPlayer) 
+        if(collider.gameObject.CompareTag("Bullet") && !isLocalPlayer) 
         {
-            this.TakeDamage(1);
-            Destroy(collider.gameObject);
+            this.TakeDamage(10);
+          //  Destroy(collider.gameObject);
+            Destroy(GameObject.FindWithTag("Bullet"));
         }
+
+        if (collider.gameObject.CompareTag("Player") && !isLocalPlayer)
+        {
+            ReceiveDamage player = GameObject.FindWithTag("Player").GetComponent<ReceiveDamage>();
+            player.TakeDamage(10);
+        } 
     }
-    void TakeDamage (int amount) 
+
+    private void TakeDamage (int amount) 
     {
         if(this.isServer) 
         {

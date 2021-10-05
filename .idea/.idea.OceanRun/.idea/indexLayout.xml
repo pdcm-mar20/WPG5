@@ -25,6 +25,7 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>BuildLinux</Path>
+      <Path>BuildLobbyTest</Path>
       <Path>Game</Path>
       <Path>Library</Path>
       <Path>Logs</Path>

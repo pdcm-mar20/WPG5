@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Firebase.Database;
+﻿using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -54,5 +52,10 @@ public class Login : MonoBehaviour
                 Debug.Log(n);
             }
         }
+    }
+
+    public void GotoRegister()
+    {
+        SceneManager.LoadScene("Register");
     }
 }
