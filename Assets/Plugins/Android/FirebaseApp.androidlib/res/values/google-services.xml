@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://oceanrun-default-rtdb.asia-southeast1.firebasedatabase.app/</string>
+  <string name="gcm_defaultSenderId" translatable="false">408478205716</string>
+  <string name="google_storage_bucket" translatable="false">oceanrun.appspot.com</string>
+  <string name="project_id" translatable="false">oceanrun</string>
+  <string name="google_api_key" translatable="false">AIzaSyDK3uIiLGKfB7KM1t-87P1QufNXUWD7tzg</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDK3uIiLGKfB7KM1t-87P1QufNXUWD7tzg</string>
+  <string name="google_app_id" translatable="false">1:408478205716:android:fd49713789e6d1180c6401</string>
+  <string name="default_web_client_id" translatable="false">408478205716-iq58a8438kgl9iqd3sj7p081ocp7mqc7.apps.googleusercontent.com</string>
+</resources>
