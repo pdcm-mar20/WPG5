@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.OceanRun2.iml
+# Datasource local storage ignored files
+/../../../../../../../:\ProjectUnity\WPG5\OceanRun2\.idea\.idea.OceanRun2\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

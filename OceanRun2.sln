@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{59538E9C-9BDC-29BE-1CAC-AEE42A5F97A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{BA939056-0B53-9859-0C42-F353AAF7E2E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParrelSync", "ParrelSync.csproj", "{B4F5B3AD-828A-DBAF-2868-750AAD7A86A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59538E9C-9BDC-29BE-1CAC-AEE42A5F97A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59538E9C-9BDC-29BE-1CAC-AEE42A5F97A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59538E9C-9BDC-29BE-1CAC-AEE42A5F97A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59538E9C-9BDC-29BE-1CAC-AEE42A5F97A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA939056-0B53-9859-0C42-F353AAF7E2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA939056-0B53-9859-0C42-F353AAF7E2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA939056-0B53-9859-0C42-F353AAF7E2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA939056-0B53-9859-0C42-F353AAF7E2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F5B3AD-828A-DBAF-2868-750AAD7A86A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F5B3AD-828A-DBAF-2868-750AAD7A86A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F5B3AD-828A-DBAF-2868-750AAD7A86A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F5B3AD-828A-DBAF-2868-750AAD7A86A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
