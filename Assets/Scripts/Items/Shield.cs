@@ -8,7 +8,7 @@ public class Shield : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             var player = other.gameObject.GetComponent<NetworkedObject>();
-            if (player.IsLocalPlayer)
+            if (player.IsLocalPlayer) 
                 DataItems.shield = true;
             Destroy(gameObject);
         }

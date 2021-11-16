@@ -16,7 +16,7 @@ public class ObstacleActive : MonoBehaviour
 
     void Update()
     {
-        if (DataItems.obstacle)
+        if (DataItems.obstacle && !DataItems.shield)
         {
             StartCoroutine(nameof(ObstacleOn));
         }

@@ -5,7 +5,7 @@ public class OilActive : MonoBehaviour
 {
     private void Update()
     {
-        if (DataItems.oil)
+        if (DataItems.oil && !DataItems.shield)
         {
             StartCoroutine(nameof(OilOn));
         }

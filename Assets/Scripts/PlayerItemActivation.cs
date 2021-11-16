@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerItemActivation : MonoBehaviour
 {
-    private bool isPlayerHasItem;
+    public static bool isPlayerHasItem;
 
     private void Update()
     {

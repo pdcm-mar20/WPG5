@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6014206587758767437}
   - component: {fileID: 246505675705918058}
   - component: {fileID: 5082921239208452854}
-  - component: {fileID: 1829753371507619147}
+  - component: {fileID: 2434801946311281971}
   m_Layer: 0
   m_Name: Oil
   m_TagString: Untagged
@@ -99,7 +99,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1829753371507619147
+--- !u!114 &2434801946311281971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
