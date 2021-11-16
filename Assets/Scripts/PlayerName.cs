@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace;
+using UnityEngine;
 using UnityEngine.UI;
 using MLAPI;
 
@@ -22,7 +23,7 @@ public class PlayerName : NetworkedBehaviour
                 randomString = randomString + characters[Random.Range(0, characters.Length)];
             }
 
-            name.text = randomString;
+            name.text = PlayerPrefs.GetString(Constant.KEY_NAME);
         }
     }
 }
