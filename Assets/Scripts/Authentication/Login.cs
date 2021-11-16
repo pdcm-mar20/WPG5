@@ -1,4 +1,5 @@
-﻿using Firebase.Database;
+﻿using DefaultNamespace;
+using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -37,7 +38,7 @@ namespace Authentication
                     {
                         if (pwd.text == pwdExist)
                         {
-                            //     PlayerPrefs.SetString(Constant.KEY_NAME, name.text);
+                            PlayerPrefs.SetString(Constant.KEY_NAME, name.text);
                             SceneManager.LoadScene("MainMenu");
                         }
                         else

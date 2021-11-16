@@ -15,10 +15,16 @@ public class Finish : MonoBehaviour
 
     private int count = 0;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Update()
     {
-        if (listName.Count == 2)
+        if (listName.Count == 1)
         {
+            Debug.Log("Finishku "+listName.Count);
             SceneManager.LoadScene("States");
         }
     }
