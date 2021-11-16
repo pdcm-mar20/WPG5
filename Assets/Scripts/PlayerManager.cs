@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length == 1)
+        if (players.Length == 2)
         {
             StartCoroutine(nameof(StartGame));
         }
