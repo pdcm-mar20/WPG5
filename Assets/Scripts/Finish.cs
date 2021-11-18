@@ -22,7 +22,7 @@ public class Finish : MonoBehaviour
 
     private void Update()
     {
-        if (listName.Count == 2)
+        if (listName.Count == 1)
         {
             Debug.Log("Finishku "+listName.Count);
             SceneManager.LoadScene("States");
