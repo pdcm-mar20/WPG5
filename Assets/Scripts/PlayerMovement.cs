@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : NetworkedBehaviour
 {
+    private Vector3 respawnPoint;
+    private bool playerFall = false;
     public static NetworkedVarFloat speed = new NetworkedVarFloat(5);
     public NetworkedVarFloat jump = new NetworkedVarFloat(10);
     [SerializeField] private new GameObject camera;
@@ -22,8 +24,15 @@ public class PlayerMovement : NetworkedBehaviour
     {
         if (IsLocalPlayer)
         {
+            respawnPoint = new Vector3(transform.position.x - 30, 20, 0);
             Move(InputPlayer());
             Jump();
+        }
+        
+        //Mati
+        if (transform.position.y < -25)
+        {
+            Respawn();
         }
     }
 
@@ -40,7 +49,8 @@ public class PlayerMovement : NetworkedBehaviour
     [ServerRPC]
     private void Move(Vector3 dir)
     {
-        transform.position += Vector3.right * (Time.deltaTime * speed.Value);
+        if(!playerFall)
+            transform.position += Vector3.right * (Time.deltaTime * speed.Value);
     }
 
     [ServerRPC]
@@ -49,6 +59,21 @@ public class PlayerMovement : NetworkedBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             transform.position += Vector3.up * (jump.Value * Time.deltaTime);
+        }
+    }
+
+    void Respawn()
+    {
+        transform.position = respawnPoint;
+        playerFall = false;
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Slippery")
+        {
+            playerFall = true;
+            Debug.Log("Gesek");
         }
     }
 }
