@@ -17,7 +17,7 @@ namespace Authentication
         private string name;
         private DataUser user;
 
-        [SerializeField]private RawImage image;
+        [SerializeField] private RawImage image;
 
         void Start()
         {
@@ -53,40 +53,12 @@ namespace Authentication
             user.score = Convert.ToUInt32(snapshot.Child("score").Value.ToString());
             user.coin = Convert.ToUInt32(snapshot.Child("coin").Value.ToString());
             user.password = snapshot.Child("password").Value.ToString();
-            user.imgProfile = snapshot.Child("imgProfile").Value.ToString();
             user.character1 = Convert.ToBoolean(snapshot.Child("character1").Value.ToString());
             user.character2 = Convert.ToBoolean(snapshot.Child("character2").Value.ToString());
 
             SetName(name);
-            var img = FirebaseStorage.DefaultInstance.GetReferenceFromUrl(user.imgProfile);
-            img.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
-            {
-                if (!task.IsCanceled && !task.IsFaulted)
-                {
-                    StartCoroutine(LoadImage(Convert.ToString(task.Result)));
-                }
-                else
-                {
-                    Debug.Log(task.Exception);
-                }
-            });
-
         }
         
-        IEnumerator LoadImage(string url)
-        {
-            var request = UnityWebRequestTexture.GetTexture(url);
-            yield return request.SendWebRequest();
-            if (request.isNetworkError || request.isHttpError)
-            {
-                Debug.Log(request.error);
-            }
-            else
-            {
-                image.texture = ((DownloadHandlerTexture) request.downloadHandler).texture;
-            }
-        }
-
         private void SetName(string name)
         {
             nameText.text = name;

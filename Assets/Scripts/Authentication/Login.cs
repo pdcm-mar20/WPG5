@@ -10,6 +10,7 @@ namespace Authentication
     {
         private string nameExist, pwdExist;
         [SerializeField] private InputField name, pwd;
+        [SerializeField]private Text err;
 
         public void Enter()
         {
@@ -38,17 +39,22 @@ namespace Authentication
                     {
                         if (pwd.text == pwdExist)
                         {
+                            err.text = "";
                             PlayerPrefs.SetString(Constant.KEY_NAME, name.text);
                             SceneManager.LoadScene("MainMenu");
                         }
                         else
                         {
-                            print("Password Salah");
+                            var message = "Password Salah!";
+                            err.text = message;
+                            print(message);
                         }
                     }
                     else
                     {
-                        print("Name Tidak Ada!");
+                        var message = "Name Tidak Ada!";
+                        err.text = message;
+                        print(message);
                     }
                 }
             }
