@@ -12,6 +12,8 @@ public class Finish : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rigidbody2D;
+    
+    [SerializeField] private Text coin;
 
     private int count = 0;
 
@@ -27,6 +29,9 @@ public class Finish : MonoBehaviour
             Debug.Log("Finishku "+listName.Count);
             SceneManager.LoadScene("States");
         }
+        
+        if(coin != null)
+            coin.text = DataItems.coin.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +55,11 @@ public class Finish : MonoBehaviour
         return listName;
     }
 
+    public static int GetCoin()
+    {
+        var getCoin = DataItems.coin;
+        return getCoin;
+    }
 
     [ClientRPC]
     void ComponentActive(bool state)

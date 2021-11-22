@@ -3,6 +3,7 @@ using System.Linq;
 using Authentication;
 using Firebase.Database;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Leaderboard : MonoBehaviour
@@ -53,5 +54,10 @@ public class Leaderboard : MonoBehaviour
                 i++;
             }
         }
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -124,4 +124,10 @@ public class EditProfile : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Logout()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Login");
+    }
 }
