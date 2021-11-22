@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : NetworkedBehaviour
 {
     private Vector3 respawnPoint;
+    private bool jumpClicked = false;
     private bool playerFall = false;
     public static NetworkedVarFloat speed = new NetworkedVarFloat(5);
     public NetworkedVarFloat jump = new NetworkedVarFloat(10);
@@ -25,9 +26,9 @@ public class PlayerMovement : NetworkedBehaviour
         if (IsLocalPlayer)
         {
             respawnPoint = new Vector3(transform.position.x - 30, 20, 0);
-            Move(InputPlayer());
+            Move(InputPlayer());            
             Jump();
-        }
+        }              
         
         //Mati
         if (transform.position.y < -25)
@@ -54,12 +55,10 @@ public class PlayerMovement : NetworkedBehaviour
     }
 
     [ServerRPC]
-    private void Jump()
+    public void Jump()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
+        if(jumpClicked)            
             transform.position += Vector3.up * (jump.Value * Time.deltaTime);
-        }
     }
 
     void Respawn()
@@ -75,5 +74,15 @@ public class PlayerMovement : NetworkedBehaviour
             playerFall = true;
             Debug.Log("Gesek");
         }
+    }
+    
+    public void JumpOn()
+    {
+        jumpClicked = true;
+    }
+    
+    public void JumpOff()
+    {
+        jumpClicked = false;
     }
 }
