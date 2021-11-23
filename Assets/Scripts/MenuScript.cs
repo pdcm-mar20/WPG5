@@ -8,6 +8,11 @@ public class MenuScript : MonoBehaviour
 
     [SerializeField] private Text shoe;
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         shoe.text = "Shoe " + DataItems.shoe;

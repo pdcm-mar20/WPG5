@@ -21,6 +21,7 @@ namespace Authentication
 
         void Start()
         {
+            PlayerPrefs.SetInt("isRegistered", 1);
             name = PlayerPrefs.GetString(Constant.KEY_NAME);
             FirebaseDatabase.DefaultInstance
                 .GetReference("Users")
