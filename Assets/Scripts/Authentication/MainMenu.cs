@@ -80,6 +80,11 @@ namespace Authentication
             SceneManager.LoadScene("Leaderboard");
         }
 
+        public void Credits()
+        {
+            SceneManager.LoadScene("Credit");
+        }
+
         public void Shop()
         {
             SceneManager.LoadScene("Shop");
