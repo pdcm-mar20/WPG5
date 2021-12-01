@@ -1,5 +1,4 @@
 ﻿using System;
-using DefaultNamespace;
 using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -93,11 +92,11 @@ public class Shop : MonoBehaviour
             btnChar2.GetComponent<Button>().enabled = true;
             
             btnChar2.GetComponent<Image>().color = new Color32(45,63,221,255);
-            btnChar2.GetComponentInChildren<Text>().text = "Selected";
+            btnChar2.GetComponentInChildren<Text>().text = "Select";
             btnChar2.GetComponentInChildren<Text>().color = Color.white;
             
             btnChar1.GetComponent<Image>().color = Color.white;
-            btnChar1.GetComponentInChildren<Text>().text = "Unselected";
+            btnChar1.GetComponentInChildren<Text>().text = "Selected";
             btnChar1.GetComponentInChildren<Text>().color = new Color32(45,63,221,255);
             PlayerPrefs.SetInt(Constant.KEY_SELECTED, 1);
         }
@@ -107,10 +106,10 @@ public class Shop : MonoBehaviour
             btnChar2.GetComponent<Button>().enabled = false;
            
             btnChar1.GetComponent<Image>().color = new Color32(45,63,221,255);
-            btnChar1.GetComponentInChildren<Text>().text = "Selected";
+            btnChar1.GetComponentInChildren<Text>().text = "Select";
             btnChar1.GetComponentInChildren<Text>().color = Color.white;
             btnChar2.GetComponent<Image>().color = Color.white;
-            btnChar2.GetComponentInChildren<Text>().text = "Unselected";
+            btnChar2.GetComponentInChildren<Text>().text = "Selected";
             btnChar2.GetComponentInChildren<Text>().color = new Color32(45,63,221,255);
             PlayerPrefs.SetInt(Constant.KEY_SELECTED, 0);
         }

@@ -1,5 +1,4 @@
 ﻿using System;
-using DefaultNamespace;
 using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +11,8 @@ namespace Authentication
     {
         private DatabaseReference reference;
 
-        [SerializeField] private new InputField name;
-        [SerializeField] private InputField pwd;
+        [SerializeField] public new InputField name;
+        [SerializeField] public InputField pwd;
         private string nameExist = "";
         private byte[] bytes;
         private string destinationPath;
@@ -81,7 +80,7 @@ namespace Authentication
             }
         }
 
-        private bool PwdCheck()
+        public bool PwdCheck()
         {
             if (pwd != null && pwd.text != "")
             {
@@ -96,7 +95,7 @@ namespace Authentication
             return false;
         }
 
-        private bool NameCheck()
+        public bool NameCheck()
         {
             if (name != null && name.text != "" && nameExist != name.text)
             {
@@ -121,7 +120,7 @@ namespace Authentication
         }
 
 
-        private static string UserId()
+        public string UserId()
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
             var stringChars = new char[8];

@@ -15,7 +15,7 @@ public class States : MonoBehaviour
         {
             var go = Instantiate(name, new Vector3(0, 0, 0), Quaternion.identity);
             go.transform.parent = GameObject.Find("Canvas").transform;
-            go.transform.localPosition = new Vector2(-140, 85 - (i * 50));
+            go.transform.localPosition = new Vector2(-110, 60 - (i * 50));
             go.transform.localScale = new Vector3(1, 1, 1);
             go.GetComponent<Text>().text = Finish.GetListWinner()[i];
 
