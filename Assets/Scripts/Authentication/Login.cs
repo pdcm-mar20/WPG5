@@ -1,5 +1,4 @@
-﻿using DefaultNamespace;
-using Firebase.Database;
+﻿using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,8 +8,8 @@ namespace Authentication
     public class Login : MonoBehaviour
     {
         private string nameExist, pwdExist;
-        [SerializeField] private InputField name, pwd;
-        [SerializeField]private Text err;
+        public InputField name, pwd;
+        public Text err;
 
         public void Enter()
         {

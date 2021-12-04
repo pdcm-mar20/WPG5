@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections;
-using DefaultNamespace;
 using Firebase.Database;
-using Firebase.Extensions;
-using Firebase.Storage;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
