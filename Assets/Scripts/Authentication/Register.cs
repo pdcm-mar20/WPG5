@@ -18,10 +18,9 @@ namespace Authentication
         private string destinationPath;
         private string nameImg;
         
-        [Header("Error Field")] [SerializeField]
-        private Text errName;
-
-        [SerializeField] private Text errPwd;
+        [Header("Error Field")] 
+        public Text errName;
+        public Text errPwd;
 
         private void Awake()
         {
@@ -88,7 +87,7 @@ namespace Authentication
                 return true;
             }
 
-            var message = "Password Harus Diisi";
+            var message = "Password Harus Diisi!";
             errPwd.text = message;
             print(message);
 
