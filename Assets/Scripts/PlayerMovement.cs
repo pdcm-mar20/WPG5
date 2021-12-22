@@ -1,4 +1,5 @@
-﻿using MLAPI;
+﻿using System;
+using MLAPI;
 using MLAPI.Messaging;
 using MLAPI.NetworkedVar;
 using UnityEngine;
@@ -11,12 +12,14 @@ public class PlayerMovement : NetworkedBehaviour
     public static NetworkedVarFloat speed = new NetworkedVarFloat(5);
     public NetworkedVarFloat jump = new NetworkedVarFloat(10);
     [SerializeField] private new GameObject camera;
+    [SerializeField] private AudioSource source;
 
     private void Start()
     {
         DataItems.waterBall = 3;
         if (!IsLocalPlayer)
         {
+            source.enabled = false;
             camera.SetActive(false);
         }
     }
@@ -54,7 +57,6 @@ public class PlayerMovement : NetworkedBehaviour
             transform.position += Vector3.right * (Time.deltaTime * speed.Value);
     }
 
-    [ServerRPC]
     public void Jump()
     {
         if(jumpClicked)            

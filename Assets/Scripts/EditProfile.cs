@@ -1,4 +1,4 @@
-﻿using DefaultNamespace;
+﻿
 using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;

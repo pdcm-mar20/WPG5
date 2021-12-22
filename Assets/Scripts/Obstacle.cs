@@ -14,9 +14,14 @@ public class Obstacle : MonoBehaviour
                 var player = other.gameObject.GetComponent<NetworkedObject>();
                 if(player.IsLocalPlayer && !DataItems.shield)
                     DataItems.obstacle = true;
-                Destroy(gameObject);
+                StartCoroutine("DestroyItems");
             }
         }
-        
+    }
+    
+    IEnumerator DestroyItems()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
     }
 }

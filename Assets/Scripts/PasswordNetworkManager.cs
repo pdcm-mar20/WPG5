@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using MLAPI;
+using MLAPI.Configuration;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
-public class PasswordNetworkManager : MonoBehaviour
+public class PasswordNetworkManager : NetworkedBehaviour
 {
     [SerializeField] private InputField passwordinputField;
     [SerializeField] private GameObject passwordEntriPanel;
     [SerializeField] private GameObject leaveButton;
-
 
     private void Start()
     {
@@ -29,6 +26,7 @@ public class PasswordNetworkManager : MonoBehaviour
         }
     }
 
+    //untuk handle client ketika player disconnect dari multiplayer
     private void HandleClientDisconnected(ulong clientId)
     {
         if (clientId == NetworkingManager.Singleton.LocalClientId)
@@ -38,6 +36,7 @@ public class PasswordNetworkManager : MonoBehaviour
         }
     }
 
+    //untuk handle client ketika player connect ke multiplayer
     private void HandleClientConnected(ulong clientId)
     {
         if (clientId == NetworkingManager.Singleton.LocalClientId)
@@ -47,6 +46,7 @@ public class PasswordNetworkManager : MonoBehaviour
         }
     }
 
+    //if object network manager ke destroy
     private void OnDestroy()
     {
         if (NetworkingManager.Singleton == null)
@@ -59,12 +59,14 @@ public class PasswordNetworkManager : MonoBehaviour
         NetworkingManager.Singleton.OnClientDisconnectCallback -= HandleClientDisconnected;
     }
 
+    //if player connect as host
     public void Host()
     {
         NetworkingManager.Singleton.ConnectionApprovalCallback += ApprovalCheck;
         NetworkingManager.Singleton.StartHost(new Vector3(-4f,0,0), Quaternion.identity);
     }
 
+    //if player success connect to multiplayer
     private void ApprovalCheck(byte[] connectionData, ulong clientId,
         NetworkingManager.ConnectionApprovedDelegate callback)
     {
@@ -73,7 +75,7 @@ public class PasswordNetworkManager : MonoBehaviour
 
         Vector3 spawnPos = Vector3.zero;
         Quaternion spawnRot = Quaternion.identity;
-
+      
         switch (NetworkingManager.Singleton.ConnectedClients.Count)
         {
             case 1:
@@ -85,16 +87,18 @@ public class PasswordNetworkManager : MonoBehaviour
                 spawnRot = Quaternion.identity;
                 break;
         }
-        
-        callback(true, null, approveConnection, spawnPos, spawnRot);
+     
+        callback(true, null,approveConnection, spawnPos, spawnRot);
     }
 
+    //if player connect as client
     public void Client()
     {
         NetworkingManager.Singleton.NetworkConfig.ConnectionData = Encoding.ASCII.GetBytes(passwordinputField.text);
         NetworkingManager.Singleton.StartClient();
     }
 
+    //if player leave from lobby
     public void Leave()
     {
         if (NetworkingManager.Singleton.IsHost)
@@ -108,5 +112,10 @@ public class PasswordNetworkManager : MonoBehaviour
         
         passwordEntriPanel.SetActive(true);
         leaveButton.SetActive(false);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

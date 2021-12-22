@@ -1,4 +1,4 @@
-﻿using DefaultNamespace;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 using MLAPI;

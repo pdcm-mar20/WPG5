@@ -19,6 +19,7 @@ public class Finish : MonoBehaviour
 
     private void Awake()
     {
+        listName = new List<string>();
         DontDestroyOnLoad(gameObject);
     }
 
