@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using MLAPI;
 using MLAPI.Messaging;
 using UnityEngine;
 
-public class ObstacleActive : MonoBehaviour
+public class ObstacleActive : NetworkedBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
@@ -16,7 +17,7 @@ public class ObstacleActive : MonoBehaviour
 
     void Update()
     {
-        if (DataItems.obstacle && !DataItems.shield)
+        if (DataItems.obstacle && !DataItems.shield && IsLocalPlayer)
         {
             StartCoroutine(nameof(ObstacleOn));
         }

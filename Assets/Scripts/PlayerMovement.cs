@@ -59,7 +59,7 @@ public class PlayerMovement : NetworkedBehaviour
 
     public void Jump()
     {
-        if(jumpClicked)            
+        if(jumpClicked || Input.GetKey(KeyCode.Space))            
             transform.position += Vector3.up * (jump.Value * Time.deltaTime);
     }
 

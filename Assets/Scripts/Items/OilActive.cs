@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using MLAPI;
 using UnityEngine;
 
-public class OilActive : MonoBehaviour
+public class OilActive : NetworkedBehaviour
 {
     private void Update()
     {
-        if (DataItems.oil && !DataItems.shield)
+        if (DataItems.oil && !DataItems.shield && IsLocalPlayer)
         {
             StartCoroutine(nameof(OilOn));
         }

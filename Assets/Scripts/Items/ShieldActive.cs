@@ -1,26 +1,29 @@
 ﻿using System.Collections;
+using MLAPI;
 using UnityEngine;
 
-public class ShieldActive : MonoBehaviour
+public class ShieldActive : NetworkedBehaviour
 {
     private float timer = 5;
     public GameObject shieldActive;
     private void Update()
     {
-        Debug.Log(DataItems.shield);
-        if (DataItems.shield)
+        if (IsLocalPlayer)
         {
-            shieldActive.SetActive(true);
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+            if (DataItems.shield)
             {
-                DataItems.shield = false;
-                timer = 5;
+                shieldActive.SetActive(true);
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    DataItems.shield = false;
+                    timer = 5;
+                }
             }
-        }
-        else
-        {
-            shieldActive.SetActive(false);
+            else
+            {
+                shieldActive.SetActive(false);
+            }
         }
     }
     /*

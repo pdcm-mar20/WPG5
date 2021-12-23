@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using MLAPI;
 using UnityEngine;
 
-public class ShoeActive : MonoBehaviour
+public class ShoeActive : NetworkedBehaviour
 {
     void Update()
     {
-        if (DataItems.shoe)
+        if (DataItems.shoe && IsLocalPlayer)
         {
             StartCoroutine(nameof(SpeedActive));
         }
